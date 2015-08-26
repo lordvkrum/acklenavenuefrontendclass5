@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var timeToDisappearCircle = 5;
+	var timeToDisappearCircle = 3;
 	var centers = [];
 	function canRenderCircle(x, y){
 		for(var i = 0; i < centers.length; i++){
