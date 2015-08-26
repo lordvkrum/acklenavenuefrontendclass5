@@ -1,0 +1,33 @@
+{
+  "name": "acklenavenuefrontendclass5",
+  "version": "0.0.0",
+  "description": "example app for acklen avenue frontend class 05",
+  "main": "server.js",
+  "dependencies": {
+    "hapi": "~8.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lordvkrum/acklenavenuefrontendclass5.git"
+  },
+  "keywords": [
+    "class",
+    "training",
+    "frontend",
+    "HTML",
+    "CSS",
+    "JS",
+    "JQuery"
+  ],
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "793f78ba568b9f07427fcda1a7c5934d19364a8d",
+  "bugs": {
+    "url": "https://github.com/lordvkrum/acklenavenuefrontendclass5/issues"
+  }
+}
