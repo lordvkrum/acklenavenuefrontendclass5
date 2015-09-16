@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	var row = $('.row');
+	var loader = $('.loader');
+	var isLoadingPlaces;
 	var createPlaceCard = function(place) {
 		var card = $('<div>');
 		card.addClass('card');
@@ -48,19 +50,35 @@ $(document).ready(function() {
 			.append(cardReveal);
 		row.append(card);
 	};
-	$.ajax({
-		url: 'js/places.json',
-		success: function(data) {
-			var places = data ? data : [];
-			places.forEach(function(place) {
-				createPlaceCard(place);
-			});
-		},
-		error: function(data) {
-			console.log('error = ' + data);
-		}
-	});
-	row.on('scroll', function(event) {
-		console.log(event.target.scrollTop);
-	});
+	var loadPlaces = function() {
+		isLoadingPlaces = true;
+		loader.show();
+		$.ajax({
+			url: 'js/places.json',
+			success: function(data) {
+				var places = data ? data : [];
+				places.forEach(function(place) {
+					createPlaceCard(place);
+				});
+				isLoadingPlaces = false;
+				loader.hide();
+			},
+			error: function(data) {
+				console.log('error = ' + data);
+				isLoadingPlaces = false;
+				loader.hide();
+			}
+		});
+	};
+	var doInit = function() {
+		isLoadingPlaces = false;
+		row.on('scroll', function(event) {
+			if (!isLoadingPlaces && event.target.scrollHeight - event.target.scrollTop < 1200) {
+				loadPlaces();
+			}
+		});
+		loadPlaces();
+	};
+
+	doInit();
 });
