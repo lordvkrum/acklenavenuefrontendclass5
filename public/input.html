@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Input Example</title>
+</head>
+<script type="text/javascript">
+	function updateH1(){
+		var input = document.getElementById('input');
+		var h1 = document.getElementById('h1');
+		var initText = 'Hello ';
+		h1.textContent = initText + input.value;
+	};
+</script>
+<body>
+
+<div>
+<p>Input something in the input box:</p>
+<p>Name : <input id="input" type="text" onchange="updateH1()" placeholder="Enter name here"></p>
+<h1 id="h1">Hello </h1>
+
+</div>
+</body>
+</html>
